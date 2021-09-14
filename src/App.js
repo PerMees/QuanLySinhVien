@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { createBrowserHistory } from "history";
+import { Router, Switch } from "react-router-dom";
+import AddStudentForm from "./Components/AddStudentForm";
+import { AdminTemplate } from "./Template/AdminTemplate";
+import TableStudent from "./Components/TableStudent";
+import UpdateDeleteStudent from "./Components/UpdateDeleteStudent";
+import SearchStudentForm from "./Components/SearchStudentForm";
+import ViewStudent from "./Components/ViewStudent";
+export const history = createBrowserHistory();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router history={history}>
+      <Switch>
+        <AdminTemplate
+          exact={true}
+          path="/xem-sinh-vien"
+          component={ViewStudent}
+        />
+        <AdminTemplate
+          exact={true}
+          path="/them-sinh-vien"
+          component={AddStudentForm}
+        />
+        <AdminTemplate
+          exact={true}
+          path="/sua-sinh-vien"
+          component={UpdateDeleteStudent}
+        />
+        <AdminTemplate
+          exact={true}
+          path="/tim-sinh-vien"
+          component={SearchStudentForm}
+        />
+        <AdminTemplate exact={true} path="/home" component={TableStudent} />
+        <AdminTemplate exact={true} path="/" component={TableStudent} />
+      </Switch>
+    </Router>
   );
 }
 
