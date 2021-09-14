@@ -245,9 +245,14 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_STUDENT: {
       const arrStudentUpdate = [...state.arrStudent];
-      arrStudentUpdate.push(action.student);
-      state.arrStudent = arrStudentUpdate;
-      state.selected = 1;
+      const index = arrStudentUpdate.findIndex(
+        (stu) => stu.maSV === action.student.maSV
+      );
+      if (index === -1) {
+        arrStudentUpdate.push(action.student);
+        state.arrStudent = arrStudentUpdate;
+        alert("Thêm sinh viên thành công");
+      } else alert("Mã sinh viên đã tồn tại");
       return { ...state };
     }
     case VIEW_STUDENT: {
