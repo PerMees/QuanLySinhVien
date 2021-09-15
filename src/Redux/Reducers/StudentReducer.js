@@ -6,6 +6,7 @@ import {
   UPDATE_STUDENT,
   SEARCH_STUDENT,
 } from "../Types/AdminType";
+import { SET_VISIBLE } from "../Types/StudentType";
 const initialState = {
   arrStudent: [
     {
@@ -239,6 +240,7 @@ const initialState = {
   },
   searchValue: "",
   arrResult: [],
+  visible: false,
 };
 
 export default (state = initialState, action) => {
@@ -271,7 +273,10 @@ export default (state = initialState, action) => {
       };
       const index = arrStudentUpdate.findIndex((st) => st.maSV === action.id);
       if (index === -1) alert("Mã sinh viên không tồn tại");
-      else newStudentChoose = arrStudentUpdate[index];
+      else {
+        newStudentChoose = arrStudentUpdate[index];
+        state.visible = true;
+      }
       state.studentChoose = newStudentChoose;
       return { ...state };
     }
@@ -346,6 +351,10 @@ export default (state = initialState, action) => {
         if (flag) newArrResult.push(stu);
       }
       state.arrResult = newArrResult;
+      return { ...state };
+    }
+    case SET_VISIBLE: {
+      state.visible = action.bool;
       return { ...state };
     }
     default:

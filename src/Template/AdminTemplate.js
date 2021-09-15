@@ -3,6 +3,8 @@ import { Route } from "react-router";
 import { Layout, Menu } from "antd";
 import "../Assets/css/admin.css";
 import { history } from "../App";
+import { NavLink } from "react-router-dom";
+import { ADMIN_ACCOUNT } from "../Redux/Types/AdminType";
 
 export const AdminTemplate = (props) => {
   const [state, setState] = useState({ collapsed: false });
@@ -21,28 +23,37 @@ export const AdminTemplate = (props) => {
     <>
       <Layout className="h-screen">
         <Sider trigger={null} collapsible collapsed={state.collapsed}>
-          <img
-            className={
-              "logo rounded-full my-4 mx-auto block transition-all" +
-              (state.collapsed ? " w-10" : " w-20")
-            }
-            src="https://i.pravatar.cc/300"
-            alt="avatar"
-          />
-          <h4
-            className={
-              "text-center text-white font-bold transition-all" +
-              (state.collapsed ? " hidden" : " block")
-            }
-          >
-            Hello, admin
-          </h4>
+          {localStorage.getItem(ADMIN_ACCOUNT) ? (
+            <>
+              <img
+                className={
+                  "logo rounded-full my-4 mx-auto block transition-all" +
+                  (state.collapsed ? " w-10" : " w-20")
+                }
+                src="https://i.pravatar.cc/300"
+                alt="avatar"
+              />
+              <h4
+                className={
+                  "text-center text-white font-bold transition-all" +
+                  (state.collapsed ? " hidden" : " block")
+                }
+              >
+                Hello,
+                {JSON.parse(localStorage.getItem(ADMIN_ACCOUNT)).username}
+              </h4>
+            </>
+          ) : (
+            <NavLink to="/" className="block text-center my-5 text-white">
+              Đăng nhập
+            </NavLink>
+          )}
           <Menu theme="dark" mode="inline" defaultSelectedKeys={[`${page}`]}>
             <Menu.Item
               key="1"
               icon={<i className="fas fa-home"></i>}
               onClick={() => {
-                history.push("/home");
+                history.push("/admin/home");
               }}
             >
               Trang chủ
@@ -51,7 +62,7 @@ export const AdminTemplate = (props) => {
               key="2"
               icon={<i className="fas fa-user"></i>}
               onClick={() => {
-                history.push("/xem-sinh-vien");
+                history.push("/admin/xem-sinh-vien");
               }}
             >
               Xem sinh viên
@@ -60,7 +71,7 @@ export const AdminTemplate = (props) => {
               key="3"
               icon={<i className="fas fa-user-plus"></i>}
               onClick={() => {
-                history.push("/them-sinh-vien");
+                history.push("/admin/them-sinh-vien");
               }}
             >
               Thêm sinh viên
@@ -69,7 +80,7 @@ export const AdminTemplate = (props) => {
               key="4"
               icon={<i className="fas fa-user-edit"></i>}
               onClick={() => {
-                history.push("/sua-sinh-vien");
+                history.push("/admin/sua-sinh-vien");
               }}
             >
               Chỉnh sửa sinh viên
@@ -78,11 +89,27 @@ export const AdminTemplate = (props) => {
               key="5"
               icon={<i className="fas fa-search" style={{ width: 17.5 }}></i>}
               onClick={() => {
-                history.push("/tim-sinh-vien");
+                history.push("/admin/tim-sinh-vien");
               }}
             >
               Tìm sinh viên
             </Menu.Item>
+            <NavLink
+              to="/"
+              className=" absolute bottom-4 text-gray-200 text-center flex justify-center items-center"
+              style={{
+                bottom: "2rem",
+                left: "50%",
+                transform: "translate(-50%,0)",
+              }}
+              onClick={() => {
+                alert("Đăng xuất thành công");
+                localStorage.clear();
+              }}
+            >
+              <i class="fas fa-sign-out-alt mr-3 text-lg"></i>
+              {!state.collapsed ? <p className="mb-0.5">Đăng xuất</p> : null}
+            </NavLink>
           </Menu>
         </Sider>
         <Layout className="site-layout ">
@@ -100,13 +127,19 @@ export const AdminTemplate = (props) => {
               minHeight: 280,
             }}
           >
-            <Route
-              exact={props.exact}
-              path={props.path}
-              render={(propsRoute) => {
-                return <props.component {...propsRoute} />;
-              }}
-            />
+            {localStorage.getItem(ADMIN_ACCOUNT) ? (
+              <Route
+                exact={props.exact}
+                path={props.path}
+                render={(propsRoute) => {
+                  return <props.component {...propsRoute} />;
+                }}
+              />
+            ) : (
+              <h3 className="text-4xl text-red-600 font-bold">
+                Vui lòng đăng nhập!
+              </h3>
+            )}
           </Content>
         </Layout>
       </Layout>

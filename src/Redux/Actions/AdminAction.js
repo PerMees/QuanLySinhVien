@@ -5,7 +5,6 @@ import {
   DELETE_STUDENT,
   SEARCH_STUDENT,
 } from "../Types/AdminType";
-import { history } from "../../App";
 
 export const AddStudentAction = (student) => {
   return {
