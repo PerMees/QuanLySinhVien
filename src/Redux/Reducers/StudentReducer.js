@@ -5,6 +5,7 @@ import {
   VIEW_STUDENT,
   UPDATE_STUDENT,
   SEARCH_STUDENT,
+  ADMIN_LOGOUT,
 } from "../Types/AdminType";
 import { SET_VISIBLE } from "../Types/StudentType";
 const initialState = {
@@ -356,6 +357,9 @@ export default (state = initialState, action) => {
     case SET_VISIBLE: {
       state.visible = action.bool;
       return { ...state };
+    }
+    case ADMIN_LOGOUT: {
+      state.visible = false;
     }
     default:
       return state;

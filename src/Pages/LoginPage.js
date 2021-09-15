@@ -139,12 +139,12 @@ export default function LoginPage() {
                   </p>
                 ) : null}
               </div>
-              <div className='mt-5'>
+              <div className="mt-5">
                 <p className="text-gray-200 ">Password:</p>
                 <input
                   value={formikAdmin.values.password}
                   name="password"
-                  type="text"
+                  type="password"
                   className="w-full h-10 p-3 rounded-lg"
                   onChange={formikAdmin.handleChange}
                   onBlur={formikAdmin.handleBlur}

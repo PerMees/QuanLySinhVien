@@ -5,8 +5,11 @@ import "../Assets/css/admin.css";
 import { history } from "../App";
 import { NavLink } from "react-router-dom";
 import { ADMIN_ACCOUNT } from "../Redux/Types/AdminType";
+import { AdminLogoutAction } from "../Redux/Actions/AdminAction";
+import { useDispatch } from "react-redux";
 
 export const AdminTemplate = (props) => {
+  const dispatch = useDispatch();
   const [state, setState] = useState({ collapsed: false });
   const { Header, Sider, Content } = Layout;
   const toggle = () => {
@@ -103,6 +106,8 @@ export const AdminTemplate = (props) => {
                 transform: "translate(-50%,0)",
               }}
               onClick={() => {
+                const action = AdminLogoutAction();
+                dispatch(action);
                 alert("Đăng xuất thành công");
                 localStorage.clear();
               }}
