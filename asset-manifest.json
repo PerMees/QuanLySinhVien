@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.23bd50c7.chunk.css",
-    "main.js": "/static/js/main.f35dff66.chunk.js",
-    "main.js.map": "/static/js/main.f35dff66.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.90a2206c.js",
-    "runtime-main.js.map": "/static/js/runtime-main.90a2206c.js.map",
-    "static/css/2.1d694c59.chunk.css": "/static/css/2.1d694c59.chunk.css",
-    "static/js/2.36369bb8.chunk.js": "/static/js/2.36369bb8.chunk.js",
-    "static/js/2.36369bb8.chunk.js.map": "/static/js/2.36369bb8.chunk.js.map",
-    "static/js/3.e7f64321.chunk.js": "/static/js/3.e7f64321.chunk.js",
-    "static/js/3.e7f64321.chunk.js.map": "/static/js/3.e7f64321.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.1d694c59.chunk.css.map": "/static/css/2.1d694c59.chunk.css.map",
-    "static/css/main.23bd50c7.chunk.css.map": "/static/css/main.23bd50c7.chunk.css.map",
-    "static/js/2.36369bb8.chunk.js.LICENSE.txt": "/static/js/2.36369bb8.chunk.js.LICENSE.txt"
+    "main.css": "/QuanLySinhVien/static/css/main.23bd50c7.chunk.css",
+    "main.js": "/QuanLySinhVien/static/js/main.f35dff66.chunk.js",
+    "main.js.map": "/QuanLySinhVien/static/js/main.f35dff66.chunk.js.map",
+    "runtime-main.js": "/QuanLySinhVien/static/js/runtime-main.1a1de11e.js",
+    "runtime-main.js.map": "/QuanLySinhVien/static/js/runtime-main.1a1de11e.js.map",
+    "static/css/2.1d694c59.chunk.css": "/QuanLySinhVien/static/css/2.1d694c59.chunk.css",
+    "static/js/2.f5d1ca2a.chunk.js": "/QuanLySinhVien/static/js/2.f5d1ca2a.chunk.js",
+    "static/js/2.f5d1ca2a.chunk.js.map": "/QuanLySinhVien/static/js/2.f5d1ca2a.chunk.js.map",
+    "static/js/3.e7f64321.chunk.js": "/QuanLySinhVien/static/js/3.e7f64321.chunk.js",
+    "static/js/3.e7f64321.chunk.js.map": "/QuanLySinhVien/static/js/3.e7f64321.chunk.js.map",
+    "index.html": "/QuanLySinhVien/index.html",
+    "static/css/2.1d694c59.chunk.css.map": "/QuanLySinhVien/static/css/2.1d694c59.chunk.css.map",
+    "static/css/main.23bd50c7.chunk.css.map": "/QuanLySinhVien/static/css/main.23bd50c7.chunk.css.map",
+    "static/js/2.f5d1ca2a.chunk.js.LICENSE.txt": "/QuanLySinhVien/static/js/2.f5d1ca2a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.90a2206c.js",
+    "static/js/runtime-main.1a1de11e.js",
     "static/css/2.1d694c59.chunk.css",
-    "static/js/2.36369bb8.chunk.js",
+    "static/js/2.f5d1ca2a.chunk.js",
     "static/css/main.23bd50c7.chunk.css",
     "static/js/main.f35dff66.chunk.js"
   ]
