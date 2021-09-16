@@ -49,39 +49,47 @@ export default function ViewStudent() {
       <div className=" shadow-lg mt-5 p-3">
         <ul>
           <li className="mt-5 text-md ml-5">
-            <b>Mã số sinh viên:</b> {studentChoose.maSV}
+            <b className="inline-block w-44">Mã số sinh viên:</b>{" "}
+            {studentChoose.maSV}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b> Họ tên sinh viên: </b>
+            <b className="inline-block w-44">Họ tên sinh viên: </b>
             {studentChoose.hoTen}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b> Ngày sinh: </b>
+            <b className="inline-block w-44">Ngày sinh: </b>
             {studentChoose.ngaySinh}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b>Chứng minh nhân dân:</b> {studentChoose.cmnd}
+            <b className="inline-block w-44">Chứng minh nhân dân:</b>
+            {studentChoose.cmnd}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b>Email: </b>
+            <b className="inline-block w-44">Email: </b>
             {studentChoose.email}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b>Số điện thoại: </b>
+            <b className="inline-block w-44">Số điện thoại: </b>
             {studentChoose.soDT}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b>Khóa:</b> {studentChoose.khoaHoc}
+            <b className="inline-block w-44">Mật khẩu: </b>
+            {studentChoose.matKhau}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b>Khoa:</b> {studentChoose.tenKhoa}
+            <b className="inline-block w-44">Khóa:</b>
+            {studentChoose.khoaHoc}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b>Lớp: </b>
+            <b className="inline-block w-44">Khoa:</b>
+            {studentChoose.tenKhoa}
+          </li>
+          <li className="mt-5 text-md ml-5">
+            <b className="inline-block w-44">Lớp: </b>
             {studentChoose.tenLop}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b>Giáo viên phụ trách: </b>
+            <b className="inline-block w-44">Giáo viên phụ trách: </b>
             {studentChoose.tenGV}
           </li>
         </ul>

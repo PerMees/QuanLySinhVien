@@ -5,3 +5,4 @@ export const VIEW_STUDENT = "VIEW_STUDENT";
 export const SEARCH_STUDENT = "SEARCH_STUDENT";
 export const ADMIN_ACCOUNT = "ADMIN_ACCOUNT";
 export const ADMIN_LOGOUT = "ADMIN_LOGOUT";
+export const STU_VIEW_STUDENT = "STU_VIEW_STUDENT";

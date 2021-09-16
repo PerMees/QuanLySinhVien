@@ -23,6 +23,7 @@ export default function AddStudentForm() {
       cmnd: "",
       email: "",
       soDT: "",
+      matKhau: "",
       khoaHoc: "",
       tenKhoa: "",
       tenLop: "",
@@ -60,6 +61,7 @@ export default function AddStudentForm() {
       cmnd: Yup.string()
         .matches(REGEX_NUMBER, "CMND không đúng định dạng")
         .required("CMND không được bỏ trống"),
+      matKhau: Yup.string().required("Mật khẩu không được bỏ trống"),
     }),
     onSubmit: (values) => {
       const action = AddStudentAction(values);
@@ -144,10 +146,8 @@ export default function AddStudentForm() {
                 ) : null}
               </div>
             </div>
-          </div>
-          <div className="w-1/2">
-            <div className="mt-5 ml-2">
-              <div className="mt-5 ml-2">
+            <div className="mt-5 mr-2">
+              <div className="mt-5 mr-2">
                 <p className="m-0">Số điện thoại</p>
                 <input
                   className=" border rounded w-full p-2"
@@ -158,6 +158,25 @@ export default function AddStudentForm() {
                 />
                 {formik.touched.soDT && formik.errors.soDT ? (
                   <p className=" text-xs text-red-600">{formik.errors.soDT}</p>
+                ) : null}
+              </div>
+            </div>
+          </div>
+          <div className="w-1/2">
+            <div className="mt-5 ml-2">
+              <div className="mt-5 ml-2">
+                <p className="m-0">Mật khẩu</p>
+                <input
+                  className=" border rounded w-full p-2"
+                  type="text"
+                  name="matKhau"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                />
+                {formik.touched.matKhau && formik.errors.matKhau ? (
+                  <p className=" text-xs text-red-600">
+                    {formik.errors.matKhau}
+                  </p>
                 ) : null}
               </div>
             </div>

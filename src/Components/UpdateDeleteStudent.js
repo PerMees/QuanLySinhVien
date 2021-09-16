@@ -50,6 +50,7 @@ export default function UpdateDeleteStudent() {
       cmnd: studentChoose.cmnd,
       email: studentChoose.email,
       soDT: studentChoose.soDT,
+      matKhau: studentChoose.matKhau,
       khoaHoc: studentChoose.khoaHoc,
       tenKhoa: studentChoose.tenKhoa,
       tenLop: studentChoose.tenLop,
@@ -87,6 +88,7 @@ export default function UpdateDeleteStudent() {
       cmnd: Yup.string()
         .matches(REGEX_NUMBER, "CMND không đúng định dạng")
         .required("CMND không được bỏ trống"),
+      matKhau: Yup.string().required("Mật khẩu không được bỏ trống"),
     }),
     onSubmit: (values) => {
       const action = UpdateStudentAction(values);
@@ -121,39 +123,47 @@ export default function UpdateDeleteStudent() {
       <div className=" shadow-lg mt-5 p-3">
         <ul>
           <li className="mt-5 text-md ml-5">
-            <b>Mã số sinh viên:</b> {studentChoose.maSV}
+            <b className="inline-block w-44">Mã số sinh viên:</b>{" "}
+            {studentChoose.maSV}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b> Họ tên sinh viên: </b>
+            <b className="inline-block w-44">Họ tên sinh viên: </b>
             {studentChoose.hoTen}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b> Ngày sinh: </b>
+            <b className="inline-block w-44">Ngày sinh: </b>
             {studentChoose.ngaySinh}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b>Chứng minh nhân dân:</b> {studentChoose.cmnd}
+            <b className="inline-block w-44">Chứng minh nhân dân:</b>
+            {studentChoose.cmnd}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b>Email: </b>
+            <b className="inline-block w-44">Email: </b>
             {studentChoose.email}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b>Số điện thoại: </b>
+            <b className="inline-block w-44">Số điện thoại: </b>
             {studentChoose.soDT}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b>Khóa:</b> {studentChoose.khoaHoc}
+            <b className="inline-block w-44">Mật khẩu: </b>
+            {studentChoose.matKhau}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b>Khoa:</b> {studentChoose.tenKhoa}
+            <b className="inline-block w-44">Khóa:</b>
+            {studentChoose.khoaHoc}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b>Lớp: </b>
+            <b className="inline-block w-44">Khoa:</b>
+            {studentChoose.tenKhoa}
+          </li>
+          <li className="mt-5 text-md ml-5">
+            <b className="inline-block w-44">Lớp: </b>
             {studentChoose.tenLop}
           </li>
           <li className="mt-5 text-md ml-5">
-            <b>Giáo viên phụ trách: </b>
+            <b className="inline-block w-44">Giáo viên phụ trách: </b>
             {studentChoose.tenGV}
           </li>
         </ul>
@@ -271,10 +281,8 @@ export default function UpdateDeleteStudent() {
                     ) : null}
                   </div>
                 </div>
-              </div>
-              <div className="w-1/2">
-                <div className="mt-5 ml-2">
-                  <div className="mt-5 ml-2">
+                <div className="mt-5 mr-2">
+                  <div className="mt-5 mr-2">
                     <p className="m-0">Số điện thoại</p>
                     <input
                       value={formikUpdate.values.soDT}
@@ -291,6 +299,28 @@ export default function UpdateDeleteStudent() {
                     ) : null}
                   </div>
                 </div>
+              </div>
+              <div className="w-1/2">
+                <div className="mt-5 ml-2">
+                  <div className="mt-5 ml-2">
+                    <p className="m-0">Mật khẩu</p>
+                    <input
+                      value={formikUpdate.values.matKhau}
+                      className=" border rounded w-full p-2"
+                      type="text"
+                      name="matKhau"
+                      onChange={formikUpdate.handleChange}
+                      onBlur={formikUpdate.handleBlur}
+                    />
+                    {formikUpdate.touched.matKhau &&
+                    formikUpdate.errors.matKhau ? (
+                      <p className=" text-xs text-red-600">
+                        {formikUpdate.errors.matKhau}
+                      </p>
+                    ) : null}
+                  </div>
+                </div>
+
                 <div className="mt-5 ml-2">
                   <div className="mt-5 ml-2">
                     <p className="m-0">Khóa</p>

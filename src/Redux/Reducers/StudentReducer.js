@@ -6,6 +6,7 @@ import {
   UPDATE_STUDENT,
   SEARCH_STUDENT,
   ADMIN_LOGOUT,
+  STU_VIEW_STUDENT,
 } from "../Types/AdminType";
 import { SET_VISIBLE } from "../Types/StudentType";
 const initialState = {
@@ -17,6 +18,7 @@ const initialState = {
       cmnd: "201788801",
       email: "nguyenvana@gmail.com",
       soDT: "0905123123",
+      matKhau: "123",
       khoaHoc: "K45",
       tenKhoa: "Kinh tế",
       tenLop: "KT001",
@@ -29,6 +31,7 @@ const initialState = {
       cmnd: "201788802",
       email: "nguyenvanb@gmail.com",
       soDT: "0905231231",
+      matKhau: "123",
       khoaHoc: "K45",
       tenKhoa: "Quản trị",
       tenLop: "QT001",
@@ -41,6 +44,7 @@ const initialState = {
       cmnd: "201788803",
       email: "nguyenvanc@gmail.com",
       soDT: "0905234234",
+      matKhau: "123",
       khoaHoc: "K45",
       tenKhoa: "Luật",
       tenLop: "LU001",
@@ -53,6 +57,7 @@ const initialState = {
       cmnd: "201788816",
       email: "nguyenvand@gmail.com",
       soDT: "0905098098",
+      matKhau: "123",
       khoaHoc: "K45",
       tenKhoa: "Kinh tế",
       tenLop: "KT001",
@@ -65,6 +70,7 @@ const initialState = {
       cmnd: "201788804",
       email: "nguyenvane@gmail.com",
       soDT: "0905987897",
+      matKhau: "123",
       khoaHoc: "K46",
       tenKhoa: "Kinh tế",
       tenLop: "KT001",
@@ -77,6 +83,7 @@ const initialState = {
       cmnd: "201788805",
       email: "nguyenvanf@gmail.com",
       soDT: "0905938475",
+      matKhau: "123",
       khoaHoc: "K45",
       tenKhoa: "Quản trị",
       tenLop: "QT001",
@@ -89,6 +96,7 @@ const initialState = {
       cmnd: "201788806",
       email: "nguyenvang@gmail.com",
       soDT: "0905231231",
+      matKhau: "123",
       khoaHoc: "K47",
       tenKhoa: "Quản trị",
       tenLop: "QT001",
@@ -101,6 +109,7 @@ const initialState = {
       cmnd: "201788820",
       email: "nguyenvanh@gmail.com",
       soDT: "0905888888",
+      matKhau: "123",
       khoaHoc: "K47",
       tenKhoa: "Kinh tế",
       tenLop: "KT002",
@@ -113,6 +122,7 @@ const initialState = {
       cmnd: "2017888078",
       email: "levank@gmail.com",
       soDT: "0905882904",
+      matKhau: "123",
       khoaHoc: "K46",
       tenKhoa: "Kinh doanh",
       tenLop: "KD001",
@@ -125,6 +135,7 @@ const initialState = {
       cmnd: "201788809",
       email: "levanl@gmail.com",
       soDT: "090592145",
+      matKhau: "123",
       khoaHoc: "K46",
       tenKhoa: "Luật",
       tenLop: "LU002",
@@ -137,6 +148,7 @@ const initialState = {
       cmnd: "201788810",
       email: "levanm@gmail.com",
       soDT: "0905928899",
+      matKhau: "123",
       khoaHoc: "K46",
       tenKhoa: "Kinh tế",
       tenLop: "KT002",
@@ -149,6 +161,7 @@ const initialState = {
       cmnd: "201788811",
       email: "levann@gmail.com",
       soDT: "0905928876",
+      matKhau: "123",
       khoaHoc: "K45",
       tenKhoa: "Quản trị",
       tenLop: "QT002",
@@ -161,6 +174,7 @@ const initialState = {
       cmnd: "201788812",
       email: "levan0@gmail.com",
       soDT: "0905928879",
+      matKhau: "123",
       khoaHoc: "K46",
       tenKhoa: "Kinh tế",
       tenLop: "KT001",
@@ -173,6 +187,7 @@ const initialState = {
       cmnd: "201788813",
       email: "levan0@gmail.com",
       soDT: "0905928873",
+      matKhau: "123",
       khoaHoc: "K45",
       tenKhoa: "Luật",
       tenLop: "LU001",
@@ -185,6 +200,7 @@ const initialState = {
       cmnd: "201788814",
       email: "tranvanq0@gmail.com",
       soDT: "0905928872",
+      matKhau: "123",
       khoaHoc: "K45",
       tenKhoa: "Luật",
       tenLop: "LU001",
@@ -197,6 +213,7 @@ const initialState = {
       cmnd: "201788815",
       email: "tranvanr0@gmail.com",
       soDT: "0905928871",
+      matKhau: "123",
       khoaHoc: "K46",
       tenKhoa: "Kinh doanh",
       tenLop: "KD001",
@@ -209,6 +226,7 @@ const initialState = {
       cmnd: "201788817",
       email: "tranvans0@gmail.com",
       soDT: "0905928276",
+      matKhau: "123",
       khoaHoc: "K46",
       tenKhoa: "Kinh doanh",
       tenLop: "KD001",
@@ -221,6 +239,7 @@ const initialState = {
       cmnd: "201788818",
       email: "tranvant0@gmail.com",
       soDT: "0905928571",
+      matKhau: "123",
       khoaHoc: "K46",
       tenKhoa: "Kinh doanh",
       tenLop: "KD001",
@@ -234,6 +253,7 @@ const initialState = {
     cmnd: "",
     email: "",
     soDT: "",
+    matKhau: "",
     khoaHoc: "",
     tenKhoa: "",
     tenLop: "",
@@ -267,6 +287,7 @@ export default (state = initialState, action) => {
         cmnd: "",
         email: "",
         soDT: "",
+        matKhau: "",
         khoaHoc: "",
         tenKhoa: "",
         tenLop: "",
@@ -277,6 +298,35 @@ export default (state = initialState, action) => {
       else {
         newStudentChoose = arrStudentUpdate[index];
         state.visible = true;
+      }
+      state.studentChoose = newStudentChoose;
+      return { ...state };
+    }
+    case STU_VIEW_STUDENT: {
+      const arrStudentUpdate = [...state.arrStudent];
+      let newStudentChoose = {
+        maSV: "",
+        hoTen: "",
+        ngaySinh: "",
+        cmnd: "",
+        email: "",
+        soDT: "",
+        khoaHoc: "",
+        tenKhoa: "",
+        tenLop: "",
+        tenGV: "",
+      };
+      const index = arrStudentUpdate.findIndex(
+        (st) => st.maSV === action.value.maSV
+      );
+      if (index === -1) alert("Mã sinh viên hoặc mật khẩu không chính xác");
+      else {
+        if (action.value.matKhau !== state.arrStudent[index].matKhau) {
+          alert("Mã sinh viên hoặc mật khẩu không chính xác");
+        } else {
+          newStudentChoose = arrStudentUpdate[index];
+          state.visible = true;
+        }
       }
       state.studentChoose = newStudentChoose;
       return { ...state };

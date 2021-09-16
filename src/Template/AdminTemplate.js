@@ -113,7 +113,7 @@ export const AdminTemplate = (props) => {
               }}
             >
               <i class="fas fa-sign-out-alt mr-3 text-lg"></i>
-              {!state.collapsed ? <p className="mb-0.5">Đăng xuất</p> : null}
+              {!state.collapsed ? <p className=" mt-3.5">Đăng xuất</p> : null}
             </NavLink>
           </Menu>
         </Sider>

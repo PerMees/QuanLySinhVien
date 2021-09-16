@@ -5,6 +5,7 @@ import {
   DELETE_STUDENT,
   SEARCH_STUDENT,
   ADMIN_LOGOUT,
+  STU_VIEW_STUDENT,
 } from "../Types/AdminType";
 
 export const AddStudentAction = (student) => {
@@ -18,6 +19,13 @@ export const ViewStudentAction = (id) => {
   return {
     type: VIEW_STUDENT,
     id,
+  };
+};
+
+export const STU_ViewStudentAction = (value) => {
+  return {
+    type: STU_VIEW_STUDENT,
+    value,
   };
 };
 

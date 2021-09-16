@@ -4,7 +4,10 @@ import { ADMIN_ACCOUNT } from "../Redux/Types/AdminType";
 import * as Yup from "yup";
 import { REGEX_NUMBER } from "../Utils/setting";
 import { history } from "../App";
-import { ViewStudentAction } from "../Redux/Actions/AdminAction";
+import {
+  STU_ViewStudentAction,
+  ViewStudentAction,
+} from "../Redux/Actions/AdminAction";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Modal, Button } from "antd";
@@ -18,14 +21,16 @@ export default function LoginPage() {
   const formikStu = useFormik({
     initialValues: {
       maSV: "",
+      matKhau: "",
     },
     validationSchema: Yup.object({
       maSV: Yup.string()
         .matches(REGEX_NUMBER, "Mã sinh viên chỉ được là số")
-        .required("Không được bỏ trống"),
+        .required("Mã sinh viên không được bỏ trống"),
+      matKhau: Yup.string().required("Mật khẩu không được bỏ trống"),
     }),
     onSubmit: (value) => {
-      const action = ViewStudentAction(value.maSV);
+      const action = STU_ViewStudentAction(value);
       dispatch(action);
     },
   });
@@ -40,9 +45,7 @@ export default function LoginPage() {
     }),
     onSubmit: (values) => {
       if (values.username !== "admin" || values.password !== "admin") {
-        alert(
-          "Thông tin đăng nhập sai, vui lòng nhập lại (username:admin,password:admin)"
-        );
+        alert("Thông tin đăng nhập sai, vui lòng nhập lại");
         return;
       }
       localStorage.setItem(ADMIN_ACCOUNT, JSON.stringify(values));
@@ -102,18 +105,36 @@ export default function LoginPage() {
         <div className="content">
           {option === 0 ? (
             <form onSubmit={formikStu.handleSubmit} className="p-5">
-              <p className="text-gray-200 ">Nhập mã sinh viên</p>
-              <input
-                value={formikStu.values.maSV}
-                name="maSV"
-                type="text"
-                className="w-full h-10 p-3 rounded-lg"
-                onChange={formikStu.handleChange}
-                onBlur={formikStu.handleBlur}
-              />
-              {formikStu.touched.maSV && formikStu.errors.maSV ? (
-                <p className="text-red-500 mt-2">{formikStu.errors.maSV}</p>
-              ) : null}
+              <div className="">
+                <p className="text-gray-200 ">Nhập mã sinh viên</p>
+                <input
+                  value={formikStu.values.maSV}
+                  name="maSV"
+                  type="text"
+                  className="w-full h-10 p-3 rounded-lg"
+                  onChange={formikStu.handleChange}
+                  onBlur={formikStu.handleBlur}
+                />
+                {formikStu.touched.maSV && formikStu.errors.maSV ? (
+                  <p className="text-red-500 mt-2">{formikStu.errors.maSV}</p>
+                ) : null}
+              </div>
+              <div className="mt-4">
+                <p className="text-gray-200 ">Mật khẩu</p>
+                <input
+                  value={formikStu.values.matKhau}
+                  name="matKhau"
+                  type="password"
+                  className="w-full h-10 p-3 rounded-lg"
+                  onChange={formikStu.handleChange}
+                  onBlur={formikStu.handleBlur}
+                />
+                {formikStu.touched.matKhau && formikStu.errors.matKhau ? (
+                  <p className="text-red-500 mt-2">
+                    {formikStu.errors.matKhau}
+                  </p>
+                ) : null}
+              </div>
               <button
                 className="block mx-auto rounded-lg bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 mt-5"
                 type="submit"

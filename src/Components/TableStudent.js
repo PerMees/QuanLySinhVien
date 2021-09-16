@@ -48,7 +48,6 @@ export default function TableStudent() {
           >
             {stu.email}
           </td>
-
           <td
             className={
               " py-2 border border-gray-300 " +
@@ -56,6 +55,14 @@ export default function TableStudent() {
             }
           >
             {stu.soDT}
+          </td>
+          <td
+            className={
+              " py-2 border border-gray-300 " +
+              (i % 2 !== 0 ? " bg-gray-200" : " bg-white")
+            }
+          >
+            {stu.matKhau}
           </td>
           <td
             className={
@@ -108,6 +115,9 @@ export default function TableStudent() {
             <th className="border-2 border-gray-500 p-2 font-bold">Email</th>
             <th className="border-2 border-gray-500 p-2 font-bold">
               Số điện thoại
+            </th>
+            <th className="border-2 border-gray-500 p-2 font-bold">
+              Mật khẩu
             </th>
             <th className="border-2 border-gray-500 p-2 font-bold">Khóa học</th>
             <th className="border-2 border-gray-500 p-2 font-bold">Khoa</th>
